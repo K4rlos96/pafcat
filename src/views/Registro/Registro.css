@@ -21,6 +21,14 @@
   align-items: center;
 }
 
+.registro-container .form-control{
+  background-color: transparent;
+}
+
+.registro-container .card{
+  background-color: transparent;
+}
+
 .card {
   padding: 1rem 2rem; /* Ajuste el relleno según sea necesario */
  border-color: transparent;
