@@ -1,0 +1,44 @@
+/* Registro.css */
+
+
+
+.contenedor {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(to top, #33cc66, #ffff33); /* Fondo degradado completo */
+  position: relative; /* Para posicionar absolutamente el pseudo-elemento y la tarjeta */
+}
+
+.registro-container {
+  width: 30%; /* El ancho del contenedor del formulario */
+  height: 100%;
+  position: absolute; /* Posicionamiento absoluto */
+  right: 0; /* Alineado a la derecha */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Ajusta al ancho que prefieras */
+  background-color: white;
+  z-index: 2;
+  margin-right: 5%; /* Alinea el formulario más a la derecha */
+}
+
+/* Pseudo-elemento que crea la curvatura */
+.contenedor::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-90deg);
+    width: 150vmin; /* El círculo ocupa el 50% del valor más pequeño entre la anchura y la altura de la ventana */
+    height: 150vmin; /* El círculo ocupa el 50% del valor más pequeño entre la anchura y la altura de la ventana */
+    background-color: white; /* El color de fondo debe coincidir con el del formulario */
+    border-radius: 50%; /* Aumenta a 50% para un círculo perfecto */
+    z-index: 1;
+  }
