@@ -40,30 +40,61 @@ function Registro() {
 
   return (
     <div className="contenedor">
-    <div className="columna-degradado">
-        {/* Contenido opcional para la columna izquierda con degradado */}
-      </div>
       <div className="registro-container">
-        <div className="card shadow p-4 mb-5 bg-white rounded">
-          <h2 className="text-center mb-4">Crea tu cuenta</h2>
+        <div className="card">
+          <h2 className="text-center">Crea tu cuenta</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <input type="text" className="form-control" id="nombre" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+              <input
+                type="text"
+                className="form-control"
+                id="nombre"
+                placeholder="Nombre"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                required
+              />
             </div>
             <div className="form-group">
-              <input type="email" className="form-control" id="email" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="Correo Electrónico"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
             <div className="form-group">
-              <input type="password" className="form-control" id="contraseña" placeholder="Contraseña" value={contraseña} onChange={(e) => setContraseña(e.target.value)} required />
+              <input
+                type="password"
+                className="form-control"
+                id="contraseña"
+                placeholder="Contraseña"
+                value={contraseña}
+                onChange={(e) => setContraseña(e.target.value)}
+                required
+              />
             </div>
             <div className="form-group">
-              <input type="password" className="form-control" id="repetirContraseña" placeholder="Repetir contraseña" value={repetirContraseña} onChange={(e) => setRepetirContraseña(e.target.value)} required />
+              <input
+                type="password"
+                className="form-control"
+                id="repetirContraseña"
+                placeholder="Repetir contraseña"
+                value={repetirContraseña}
+                onChange={(e) => setRepetirContraseña(e.target.value)}
+                required
+              />
             </div>
             <div className="form-group text-center">
-              <button type="submit" className="btn btn-primary registro-btn">INSCRIBIRSE</button>
+            <button type="submit" className="btn btn-primary" style={{color: 'black'}}>
+  INSCRIBIRSE
+</button>
             </div>
           </form>
-          <div className="mt-4 text-center">
+          <div className="text-center">
             ¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a>
           </div>
         </div>
