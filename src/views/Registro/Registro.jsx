@@ -7,6 +7,7 @@ function Registro() {
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [repetirContraseña, setRepetirContraseña] = useState('');
+  const [terminosAceptados, setTerminosAceptados] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -15,6 +16,11 @@ function Registro() {
       alert('Las contraseñas no coinciden');
       return;
     }
+    if (!terminosAceptados) {
+      alert('Debes aceptar los términos y condiciones para registrarte.');
+      return;
+    }
+    // Asumimos que se realiza una validación de los términos aquí.
     try {
       const response = await fetch('http://localhost:8000/usuarios/', {
         method: 'POST',
@@ -88,10 +94,26 @@ function Registro() {
                 required
               />
             </div>
+            <div className="form-group">
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <input
+                  type="checkbox"
+                  id="terminos"
+                  className="hidden-checkbox"
+                  checked={terminosAceptados}
+                  onChange={(e) => setTerminosAceptados(e.target.checked)}
+                  required
+                />
+                <label htmlFor="terminos" style={{ fontSize: 'smaller', marginLeft: '0.5rem' }}className="checkbox-label">
+                <span className="custom-checkbox"></span>
+                  Al registrarte, aceptas nuestros <a href="/terminos-y-condiciones">Términos de servicio y Política de privacidad</a>, y confirmas que tienes al menos 18 años.
+                </label>
+              </div>
+            </div>
             <div className="form-group text-center">
-            <button type="submit" className="btn btn-primary" style={{color: 'black'}}>
-  INSCRIBIRSE
-</button>
+              <button type="submit" className="btn btn-primary">
+                INSCRIBIRSE
+              </button>
             </div>
           </form>
           <div className="text-center">

@@ -47,7 +47,7 @@
   }
   .card h2::before,
   .card h2::after {
-    background-image: linear-gradient(to top, #33cc66, #ffff33);
+    background-image: linear-gradient(to bottom, #33cc66, #ffff33);
     content: ''; /* Contenido vacío para los pseudoelementos */
     position: absolute; /* Posicionamiento absoluto */
     top: 50%; /* Alineación vertical */
@@ -77,7 +77,7 @@
 }
 
 .card button {
-    background-image: linear-gradient(to top, #33cc66, #ffff33);
+    background-image: linear-gradient(to bottom, #33cc66, #ffff33);
   width: 100%; /* El botón ocupa todo el ancho disponible */
   padding: 0.5rem; /* Relleno interno para el botón */
   border: none; /* No hay borde para el botón */
@@ -95,7 +95,7 @@
   text-decoration: none; /* Sin subrayado en los enlaces */
 }
 /* Pseudo-elemento que crea la curvatura */
-.contenedor::before {
+.contenedor::before{
     content: '';
     position: absolute;
     right: 0;
@@ -134,3 +134,55 @@
       transform: translate(60%, -50%) rotate(-90deg); /* Ajusta si el círculo no está centrado verticalmente */
     }
   }
+  
+
+  /* Oculta la casilla de verificación original */
+.hidden-checkbox {
+  display: none;
+}
+
+/* Estilo para el label que funcionará como nuestra casilla de verificación */
+.checkbox-label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 35px;
+  margin-bottom: 12px;
+}
+
+/* Estilo para la caja de verificación personalizada */
+.checkbox-label .custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+/* Agregar un pseudo-elemento para el tick de verificación, opcional */
+.checkbox-label .custom-checkbox:after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Cuando la casilla de verificación oculta está marcada, cambia el fondo del pseudo-elemento */
+.hidden-checkbox:checked + .checkbox-label .custom-checkbox {
+  background: linear-gradient(to bottom, #33cc66, #ffff33);
+  border-color: #33cc66;
+}
+
+/* Mostrar el tick cuando está marcado */
+.hidden-checkbox:checked + .checkbox-label .custom-checkbox:after {
+  display: block;
+}
