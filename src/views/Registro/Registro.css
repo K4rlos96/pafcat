@@ -1,0 +1,196 @@
+/* Registro.css */
+
+
+
+.contenedor {
+    display: flex;
+    min-height: 100vh; /* Asegúrate de que el contenedor sea al menos del tamaño de la altura del viewport */
+    background: linear-gradient(to top, #33cc66, #ffff33); /* Fondo degradado completo */
+    position: relative; /* Para posicionar absolutamente el pseudo-elemento y la tarjeta */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+  }
+  
+.registro-container {
+    width: 80%; /* Ajusta este porcentaje para cambiar el ancho del formulario */
+    max-width: 600px; /* Establece un max-width si necesitas un límite */
+  height: 100%;
+  position: absolute; /* Posicionamiento absoluto */
+  right: 0; /* Alineado a la derecha */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registro-container .form-control{
+  background-color: transparent;
+}
+
+.registro-container .card{
+  background-color: transparent;
+}
+
+.card {
+  padding: 1rem 2rem; /* Ajuste el relleno según sea necesario */
+ border-color: transparent;
+  
+  max-width: 100%; /* Ajusta el ancho máximo si es necesario */
+  background-color: white; /* Fondo blanco para el formulario */
+  z-index: 3; /* Asegúrate de que el formulario se sitúe sobre otros elementos */
+  margin: auto; /* Centra el formulario horizontalmente */
+  transform: translateY(-55%); /* Centrar verticalmente */
+  position: absolute; /* Posicionamiento absoluto */
+  top: 45%; /* Alineación vertical al centro */
+  left: 5%; /* Alineación horizontal al centro */
+  right: 0%; /* Alineación horizontal al centro */
+  display: flex; /* Utiliza flexbox para alinear los hijos */
+  flex-direction: column; /* Los elementos internos se apilan verticalmente */
+  justify-content: center; /* Centra los elementos internos verticalmente */
+  align-items: center; /* Centra los elementos internos horizontalmente */
+}
+
+/* Ajustes para los elementos internos de .card */
+.card h2 {
+    position: relative; /* Para posicionar los pseudoelementos */
+    padding: 0 1rem; /* Espacio a los lados del texto */
+  }
+  .card h2::before,
+  .card h2::after {
+    background-image: linear-gradient(to bottom, #33cc66, #ffff33);
+    content: ''; /* Contenido vacío para los pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Alineación vertical */
+    width: 7px; /* Ancho del punto */
+    height: 7px; /* Altura del punto */
+    background-color: #33cc66; /* Color de fondo verde */
+    border-radius: 0%; /* Hacerlos redondos */
+    transform: translateY(-50%); /* Centrarlos verticalmente */
+  }
+  .card h2::before {
+    left: 0; /* Alineación a la izquierda del texto */
+    margin-left: -20px; /* Espacio antes del punto */
+  }
+  
+  .card h2::after {
+    right: 0; /* Alineación a la derecha del texto */
+    margin-right: -20px; /* Espacio después del punto */
+  }
+.card input[type="text"],
+.card input[type="email"],
+.card input[type="password"] {
+    
+  border: none; /* Eliminar todos los bordes */
+  border-bottom: 2px solid #09fd8f; /* Línea inferior verde */
+  margin-bottom: 1rem; /* Espacio después de cada input */
+  padding: 0.5rem 0; /* Relleno en la parte superior e inferior del input */
+}
+
+.card button {
+    background-image: linear-gradient(to bottom, #33cc66, #ffff33);
+  width: 100%; /* El botón ocupa todo el ancho disponible */
+  padding: 0.5rem; /* Relleno interno para el botón */
+  border: none; /* No hay borde para el botón */
+  border-radius: 5px; /* Bordes redondeados para el botón */
+  background-color: #33cc66; /* Color de fondo para el botón */
+  color: white; /* Color del texto para el botón */
+  font-size: 1rem; /* Tamaño de la fuente para el botón */
+  margin-bottom: 1rem; /* Espacio debajo del botón */
+  cursor: pointer; /* Cursor en forma de mano al pasar sobre el botón */
+  box-shadow: none; /* Sin sombra para el botón para un aspecto plano */
+}
+
+.card a {
+  color: #0c0c0c; /* Color de los enlaces para coincidir con el botón */
+  text-decoration: none; /* Sin subrayado en los enlaces */
+}
+/* Pseudo-elemento que crea la curvatura */
+.contenedor::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(25%, -50%) rotate(-90deg);
+    width: 150vmin; /* El círculo ocupa el 50% del valor más pequeño entre la anchura y la altura de la ventana */
+    height: 150vmin; /* El círculo ocupa el 50% del valor más pequeño entre la anchura y la altura de la ventana */
+    background-color: white; /* El color de fondo debe coincidir con el del formulario */
+    border-radius: 50%; /* Aumenta a 50% para un círculo perfecto */
+    z-index: 1;
+  }
+
+  /* Media queries para ajustes específicos en diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .contenedor::before {
+      /* Ajustes para dispositivos más pequeños si es necesario */
+      right: 0%; /* Ajusta si el círculo se desplaza demasiado a la derecha o izquierda */
+      transform: translate(60%, -50%) rotate(-90deg); /* Ajusta si el círculo no está centrado verticalmente */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contenedor::before {
+      /* Ajustes para dispositivos aún más pequeños */
+      height: 200vmin; /* Ajusta si el círculo es demasiado pequeño o grande */
+        width: 250vmin; /* Ajusta si el círculo es demasiado pequeño o grande */
+      right: 3%;
+      transform: translate(65%, -50%) rotate(-90deg);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .contenedor::before {
+      /* Ajustes para dispositivos más pequeños si es necesario */
+      right: 0%; /* Ajusta si el círculo se desplaza demasiado a la derecha o izquierda */
+      transform: translate(60%, -50%) rotate(-90deg); /* Ajusta si el círculo no está centrado verticalmente */
+    }
+  }
+  
+
+  /* Oculta la casilla de verificación original */
+.hidden-checkbox {
+  display: none;
+}
+
+/* Estilo para el label que funcionará como nuestra casilla de verificación */
+.checkbox-label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 35px;
+  margin-bottom: 12px;
+}
+
+/* Estilo para la caja de verificación personalizada */
+.checkbox-label .custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+/* Agregar un pseudo-elemento para el tick de verificación, opcional */
+.checkbox-label .custom-checkbox:after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Cuando la casilla de verificación oculta está marcada, cambia el fondo del pseudo-elemento */
+.hidden-checkbox:checked + .checkbox-label .custom-checkbox {
+  background: linear-gradient(to bottom, #33cc66, #ffff33);
+  border-color: #33cc66;
+}
+
+/* Mostrar el tick cuando está marcado */
+.hidden-checkbox:checked + .checkbox-label .custom-checkbox:after {
+  display: block;
+}
